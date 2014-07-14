@@ -1,0 +1,1 @@
+"use strict";var App=App||{};!function(){App.Main=React.createClass({displayName:"Main",render:function(){return React.DOM.div(null,"Weee!")}});var e=App.Main;React.renderComponent(e(null),document.getElementById("container"))}();
