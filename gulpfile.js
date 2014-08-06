@@ -24,7 +24,6 @@ gulp.task('less', function () {
 gulp.task('react', function () {
   return gulp.src(paths.react)
     .pipe(react())
-    .pipe(uglify())
     .pipe(gulp.dest('./public/js/build'));
 });
 
