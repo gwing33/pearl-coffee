@@ -145,12 +145,17 @@ ul {
 }
 .product-desc {
   width: 520px;
-  margin-left: 40px;
   display: block;
   text-align: left;
   font-size: 16px;
   color: #666;
-  margin-top: 7px;
+  margin: 7px 0 32px 40px;
+}
+.gallery {
+  height: 153px;
+  width: 550px;
+  margin: 0 auto;
+  background-color: #f2f2f2;
 }
 .about-us li {
   position: relative;
