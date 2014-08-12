@@ -42,6 +42,16 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+h1 {
+  margin: 100px 0;
+}
+
+h2 {
+  font-size: 20px;
+  color: #222;
+  font-weight: normal;
+}
+
 h3 {
   font-size: 30px;
   font-weight: 300;
@@ -65,6 +75,24 @@ ul {
 
 // Custom
 
+.dots {
+  position: relative;
+}
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #ddd;
+  height: 5px;
+  width: 5px;
+}
+.dot-focus {
+  height: 16px;
+  width: 16px;
+  background-color: @blue;
+  margin-top: -5px;
+  margin-left: -5px;
+}
+
 #container {
   width: 600px;
   margin: 0 auto;
@@ -75,9 +103,83 @@ ul {
   color: #fff;
   background-color: @blue;
   display: inline-block;
-  padding: 5px 20px;
+  padding: 0 30px;
   text-decoration: none;
   font-size: 20px;
+  line-height: 48px;
+}
+
+.order-online {
+  margin-bottom: 65px;
+}
+.local {
+  font-size: 14px;
+  color: #666;
+}
+.upcoming-locs {
+  margin-top: 66px;
+  margin-bottom: 5px;
+}
+.upcoming {
+  text-align: left;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+  font-weight: 600;
+  font-size: 20px;
+
+  li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #f2f2f2;
+    position: relative;
+
+    h5, span, a {
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    h5 {
+      margin: 0;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      margin-top: -10px;
+    }
+
+    span {
+      color: #888;
+      font-weight: 200;
+    }
+
+    .dot {
+      bottom: -3px;
+      right: 81px;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.our-product {
+  margin-top: 97px;
+  margin-bottom: 0;
+}
+.product-desc {
+  width: 520px;
+  margin-left: 40px;
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  color: #666;
+  margin-top: 7px;
 }
 
 .about-us {

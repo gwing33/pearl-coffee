@@ -18,6 +18,9 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
+    .on('error', function (error) {
+        console.log(error); // Don't do anything because I don't give a shit
+    })
     .pipe(gulp.dest('./public/css'));
 });
 
