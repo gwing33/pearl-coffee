@@ -11,13 +11,15 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/main.css">
 
+    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+
     <script src="/js/vendor/modernizr-2.8.0.min.js"></script>
   </head>
   <body>
     <div id="container">
 
       <h1>
-        <img src="http://placehold.it/400x179" height="179" width="400" alt="PEARL COFFEE" />
+        <img src="/imgs/PearlCoffee.png" height="178" width="400" alt="PEARL COFFEE" />
       </h1>
       <div class='dots'>
         <div style="top: 22px; left: 197px;" class='dot'></div>
@@ -61,18 +63,12 @@
 
       <h3 class='upcoming-locs'>UPCOMING LOCATIONS</h3>
       <ul class='upcoming'>
-        <li>
+        <!-- <li>
           Gilbert Farmers Market
           <h5>July 26 - 27 <span>(Saturday & Sunday)</span></h5>
           <a href="#">View Map</a>
           <div class='dot'></div>
-        </li>
-        <li>
-          Gilbert Farmers Market
-          <h5>July 26 - 27 <span>(Saturday & Sunday)</span></h5>
-          <a href="#">View Map</a>
-          <div class='dot'></div>
-        </li>
+        </li> -->
         <li class='coming-soon'>
           Coming Soon!
           <div class='dot'></div>
@@ -251,25 +247,68 @@
         We are taking you back to school and educating you on the worlds coffee, one cup at a time.
       </p>
 
-      <div class='gallery'>
+      <div class="gallery">
+
+        <a href='#' class='prev'><i class='icon-arrow-left'></i></a>
+        <div class='viewport'>
+          <ul>
+            <li>
+              <a class='fancybox' rel='group' href="/imgs/gallery/photo1.jpg">
+                <img src="/imgs/gallery/photo1-thumb.jpg" data-title="Coffee" data-description="Our Coffee">
+              </a>
+            </li>
+            <li>
+              <a class='fancybox' rel='group' href="/imgs/gallery/photo4.jpg">
+                <img src="/imgs/gallery/photo4-thumb.jpg" data-title="Coffee" data-description="Our Coffee">
+              </a>
+            </li>
+            <li>
+              <a class='fancybox' rel='group' href="/imgs/gallery/photo2.jpg">
+                <img src="/imgs/gallery/photo2-thumb.jpg" data-title="Coffee" data-description="Our Coffee">
+              </a>
+            </li>
+            <li>
+              <a class='fancybox' rel='group' href="/imgs/gallery/photo3.jpg">
+                <img src="/imgs/gallery/photo3-thumb.jpg" data-title="Coffee" data-description="Our Coffee">
+              </a>
+            </li>
+            <li>
+              <a class='fancybox' rel='group' href="/imgs/gallery/photo5.jpg">
+                <img src="/imgs/gallery/photo5-thumb.jpg" data-title="Coffee" data-description="Our Coffee">
+              </a>
+            </li>
+            <li>
+              <a class='fancybox' rel='group' href="/imgs/gallery/photo6.jpg">
+                <img src="/imgs/gallery/photo6-thumb.jpg" data-title="Coffee" data-description="Our Coffee">
+              </a>
+            </li>
+            <li>
+              <a class='fancybox' rel='group' href="/imgs/gallery/photo7.jpg">
+                <img src="/imgs/gallery/photo7-thumb.jpg" data-title="Coffee" data-description="Our Coffee">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <a href='#' class='next'><i class='icon-arrow-right'></i></a>
       </div>
 
       <h4 class='about-us-title'>ABOUT US</h4>
       <ul class='about-us'>
         <li>
-          <img src='http://placehold.it/100x100' width="100" height="100">
+          <img src='/imgs/kat.png' width="100" height="100">
           <b>Kat Djordjevic</b> is our roaster / packaging / logistics guru and owner.
           Kat’s favorite drinks include cappuccino, iced coffee and turkish coffee.
         </li>
 
         <li>
-          <img src='http://placehold.it/100x100' width="100" height="100">
+          <img src='/imgs/g.png' width="100" height="100">
           <b>Gerald Leenerts</b> is our design / marketing / taste-tester guru and co-owner.
           His favorite drinks include cold brew ice coffee, iced americano --anything to keep him nice and cool.
         </li>
 
         <li>
-          <img src='http://placehold.it/100x100' width="100" height="100">
+          <img src='/imgs/pearl.png' width="100" height="100">
           <b>Pearl</b> is our white boxer and the inspiration for our coffee shop.
           Her rambunctious personality keeps us in line as we work throughout the day.
           Pearl’s favorite drinks include water and more water.
@@ -300,6 +339,69 @@
       <h2 class='see-you-soon'>See You Soon!</h2>
 
     </div>
+
+    <script src='/js/vendor/jquery-1.11.1.min.js'></script>
+
+    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script>
+      $(function() {
+  		  $(".fancybox").fancybox();
+
+        $('.prev').on('click', function(e) {
+          e.preventDefault();
+          positionGallery(true);
+        });
+        $('.next').on('click', function(e) {
+          e.preventDefault();
+          positionGallery(false);
+        });
+      });
+
+      function positionGallery(is_prev) {
+        var gallery = $('.gallery'),
+            slider  = gallery.find('ul');
+
+        // These are the core variables
+        var full_width, viewport_width, left_pos, li_width;
+
+        // Calculating the full width
+        var lis, li_margin_left, li_margin_right;
+
+        lis = gallery.find('ul li');
+
+        li_width = lis.width();
+
+        li_margin_left = getNum( lis.css('margin-left') );
+        li_margin_right = getNum( lis.css('margin-right') );
+
+        // Setting Core Values..
+        li_width += li_margin_left + li_margin_right;
+
+        full_width = lis.length * li_width;
+
+        viewport_width = gallery.find('.viewport').width();
+
+        left_pos = getNum( slider.css('left') );
+
+        // Set new position
+        left_pos += is_prev ? li_width : (-1*li_width);
+
+        // If the left_pos goes out of bounds, cycle it back to normal...
+        var max_width = (full_width - viewport_width) * -1;
+
+        if(left_pos < max_width) {
+          left_pos = 0;
+        } else if(left_pos > 0) {
+          left_pos = max_width;
+        }
+
+        slider.css('left', left_pos);
+      }
+
+      function getNum(px_string) {
+        return parseInt(px_string.replace('px', ''));
+      }
+    </script>
 
 
   </body>
