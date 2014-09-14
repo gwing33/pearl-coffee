@@ -128,12 +128,13 @@ ul {
 .upcoming li h5,
 .upcoming li span,
 .upcoming li a {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
 }
 .upcoming li h5 {
   margin: 0;
   color: #222;
+  line-height: 30px;
 }
 .upcoming li a {
   text-decoration: none;
@@ -141,7 +142,7 @@ ul {
   position: absolute;
   right: 40px;
   top: 50%;
-  margin-top: -10px;
+  margin-top: -12px;
 }
 .upcoming li span {
   color: #888;
