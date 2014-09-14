@@ -105,8 +105,19 @@ ul {
   font-size: 14px;
   color: #666;
 }
+.local li {
+  padding: 5px 0;
+}
+.local span {
+  font-size: 12px;
+  color: #888;
+}
+.local span b {
+  font-weight: normal;
+  color: #444;
+}
 .upcoming-locs {
-  margin-top: 66px;
+  margin-top: 49px;
   margin-bottom: 5px;
 }
 .upcoming {
