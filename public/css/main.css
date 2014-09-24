@@ -136,6 +136,10 @@ ul {
   border-bottom: 1px solid #f2f2f2;
   position: relative;
 }
+.upcoming li a.title {
+  font-size: 24px;
+  text-decoration: none;
+}
 .upcoming li h5,
 .upcoming li span,
 .upcoming li a {
@@ -147,7 +151,7 @@ ul {
   color: #222;
   line-height: 30px;
 }
-.upcoming li a {
+.upcoming li a.side-link {
   text-decoration: none;
   font-size: 18px;
   position: absolute;
